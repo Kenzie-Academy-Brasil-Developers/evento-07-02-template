@@ -48,3 +48,48 @@ const movies = [
     synopsis: `Após frustradas tentativas de escapar da granja dos Tweedy, as galinhas, lideradas por Ginger, mantêm poucas esperanças. Mas, quando o galo voador Rocky aparece no galinheiro, elas acreditam que ele poderá ensiná-las a voar, e assim, uma nova luz surge no fim do túnel.`,
   },
 ];
+
+/*
+  Passos lógicos para adicionar um novo elementos ao HTML pelo DOM:
+  - 1. Criar o elemento desejado utilizando o método document.createElement
+  - 2. Adicionar as propriedades ao elemento criado (textos internos, classes)
+  - 3. Capturar um elemento de referência que já existe no HTML.
+  - 4. Adicionar o elemento criado ao HTML, utilizando o elemento de referencia 
+  capturado.
+*/
+
+// CRIANDO OS ELEMENTOS NECESSÁRIOS
+const liMovie = document.createElement("li");
+const imgMoviePoster = document.createElement("img");
+const divMovieInfo = document.createElement("div");
+const h3MovieTitle = document.createElement("h3");
+const h4MovieGenre = document.createElement("h4");
+const pSynopsis = document.createElement("p");
+
+// CUIDAMOS DA HIERARQUIA DOS ELEMENTOS (QUEM VAI DENTRO DE QUEM)
+liMovie.append(imgMoviePoster, divMovieInfo);
+
+divMovieInfo.append(h3MovieTitle, h4MovieGenre, pSynopsis);
+
+// PREENCHER OS CONTEUDOS INTERNOS
+h3MovieTitle.innerText = "Matrix";
+h4MovieGenre.innerText = "Ficção Científica";
+pSynopsis.innerText =
+  "Em um futuro próximo, Thomas Anderson (Keanu Reeves), um jovem programador de computador que mora em um cubículo escuro, é atormentado por estranhos pesadelos nos quais encontra-se conectado por cabos e contra sua vontade, em um imenso sistema de computadores do futuro.";
+imgMoviePoster.src = "./imgs/matrix-poster.jpg";
+imgMoviePoster.alt = "Poster do Filme Matrix";
+
+// ADICIONANDO CLASSES
+liMovie.classList.add("movie-item");
+imgMoviePoster.classList.add("movie-poster");
+divMovieInfo.classList.add("movie-info");
+h3MovieTitle.classList.add("movie-title");
+h4MovieGenre.classList.add("movie-genre");
+pSynopsis.classList.add("movie-synopsis");
+
+console.log(liMovie);
+
+const ulMovies = document.querySelector(".movies-list");
+// console.log(ulMovies);
+
+ulMovies.append(liMovie);
