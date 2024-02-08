@@ -1,60 +1,50 @@
-const body = document.querySelector("body");
-body.style.backgroundColor = "teal";
-
-const paragraph = document.querySelector("p");
-// console.log(paragraph);
-// paragraph.style.backgroundColor = "tomato";
-// paragraph.innerText = "Novo texto do paragrafo alterado pelo DOM";
-// DOCUMENT OBJECT MODEL
-
-const h1Titulo = document.querySelector("#titulo-nivel-1");
-// console.log(h1Titulo);
-
-h1Titulo.innerText = "Titulo modificado pelo DOM";
-
-const paragraphs = document.querySelectorAll(".paragrafo");
-// console.log(paragraphs);
-
-// paragraphs.style.backgroundColor = "tomato";
-for (let i = 0; i < paragraphs.length; i++) {
-  // console.log(paragraphs[i]);
-  paragraphs[i].style.backgroundColor = "tomato";
-}
-
-const filmes = [
-  // indice 0
+const movies = [
   {
-    titulo: "Matrix",
-    genero: "Ficção Científica",
+    title: "Matrix",
+    poster: "./imgs/matrix-poster.jpg",
+    genre: "Ficção Científica",
+    release: false,
+    rated: "R",
+    synopsis: `O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro.`,
   },
-  // indice 1
   {
-    titulo: "O Poderoso Chefão",
-    genero: "Crime",
+    title: "O Poderoso Chefão",
+    poster: "./imgs/poderoso-chefao-poster.jpg",
+    genre: "Drama",
+    release: false,
+    rated: "R",
+    synopsis: `Uma família mafiosa luta para estabelecer sua supremacia nos Estados Unidos depois da Segunda Guerra Mundial. Uma tentativa de assassinato deixa o chefão Vito Corleone incapacitado e força os filhos Michael e Sonny a assumir os negócios.`,
   },
-  // indice 2
   {
-    titulo: "A Origem",
-    genero: "Ação",
+    title: "A Origem",
+    poster: "./imgs/a-origem-poster.jpg",
+    genre: "Ação",
+    release: true,
+    rated: "PG-13",
+    synopsis: `Dom Cobb é um ladrão com a rara habilidade de roubar segredos do inconsciente, obtidos durante o estado de sono. Impedido de retornar para sua família, ele recebe a oportunidade de se redimir ao realizar uma tarefa aparentemente impossível: plantar uma ideia na mente do herdeiro de um império.`,
   },
-  // indice 3
   {
-    titulo: "Pulp Fiction",
-    genero: "Crime",
+    title: "Pulp Fiction",
+    poster: "./imgs/pulp-fiction-poster.jpg",
+    genre: "Crime",
+    release: false,
+    rated: "R",
+    synopsis: `Assassino que trabalha para a máfia se apaixona pela esposa de seu chefe quando é convidado a acompanhá-la, um boxeador descumpre sua promessa de perder uma luta e um casal tenta um assalto que rapidamente sai do controle.`,
   },
-  // indice 4
   {
-    titulo: "Interstellar",
-    genero: "Aventura",
+    title: "Interestelar",
+    poster: "./imgs/interestellar-poster.jpg",
+    genre: "Aventura",
+    release: true,
+    rated: "PG-13",
+    synopsis: `As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.`,
+  },
+  {
+    title: "A Fugas das Galinhas",
+    poster: "./imgs/fuga-das-galinhas.jpg",
+    genre: "Animação",
+    release: true,
+    rated: "G",
+    synopsis: `Após frustradas tentativas de escapar da granja dos Tweedy, as galinhas, lideradas por Ginger, mantêm poucas esperanças. Mas, quando o galo voador Rocky aparece no galinheiro, elas acreditam que ele poderá ensiná-las a voar, e assim, uma nova luz surge no fim do túnel.`,
   },
 ];
-
-const liFilme = document.querySelectorAll(".filme-item");
-console.log(liFilme);
-
-for (let i = 0; i < filmes.length; i++) {
-  const tituloFilme = filmes[i].titulo;
-  liFilme[i].innerText = tituloFilme;
-  // console.log(tituloFilme);
-  // filmes[i].style.backgroundColor = "tomato";
-}
