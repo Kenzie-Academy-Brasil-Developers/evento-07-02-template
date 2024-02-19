@@ -132,3 +132,12 @@ table {
 img {
   max-width: 100%;
 }
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+}

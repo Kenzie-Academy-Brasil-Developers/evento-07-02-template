@@ -58,38 +58,58 @@ const movies = [
   capturado.
 */
 
-// CRIANDO OS ELEMENTOS NECESSÁRIOS
-const liMovie = document.createElement("li");
-const imgMoviePoster = document.createElement("img");
-const divMovieInfo = document.createElement("div");
-const h3MovieTitle = document.createElement("h3");
-const h4MovieGenre = document.createElement("h4");
-const pSynopsis = document.createElement("p");
+function createMovieCard(movieObj) {
+  // CRIANDO OS ELEMENTOS NECESSÁRIOS
+  const liMovie = document.createElement("li");
+  const imgMoviePoster = document.createElement("img");
+  const divMovieAside = document.createElement("div");
+  const divMovieInfo = document.createElement("div");
+  const h3MovieTitle = document.createElement("h3");
+  const h4MovieGenre = document.createElement("h4");
+  const pSynopsis = document.createElement("p");
+  const btnAddMovie = document.createElement("button");
 
-// CUIDAMOS DA HIERARQUIA DOS ELEMENTOS (QUEM VAI DENTRO DE QUEM)
-liMovie.append(imgMoviePoster, divMovieInfo);
+  // CUIDAMOS DA HIERARQUIA DOS ELEMENTOS (QUEM VAI DENTRO DE QUEM)
+  liMovie.append(imgMoviePoster, divMovieAside);
+  divMovieAside.append(divMovieInfo, btnAddMovie);
+  divMovieInfo.append(h3MovieTitle, h4MovieGenre, pSynopsis);
 
-divMovieInfo.append(h3MovieTitle, h4MovieGenre, pSynopsis);
+  // PREENCHER OS CONTEUDOS INTERNOS
+  h3MovieTitle.innerText = movieObj.title;
+  h4MovieGenre.innerText = movieObj.genre;
+  pSynopsis.innerText = movieObj.synopsis;
+  imgMoviePoster.src = movieObj.poster;
+  imgMoviePoster.alt = "Poster do Filme " + movieObj.title;
+  btnAddMovie.innerText = "Adicionar a Watchlist";
 
-// PREENCHER OS CONTEUDOS INTERNOS
-h3MovieTitle.innerText = "Matrix";
-h4MovieGenre.innerText = "Ficção Científica";
-pSynopsis.innerText =
-  "Em um futuro próximo, Thomas Anderson (Keanu Reeves), um jovem programador de computador que mora em um cubículo escuro, é atormentado por estranhos pesadelos nos quais encontra-se conectado por cabos e contra sua vontade, em um imenso sistema de computadores do futuro.";
-imgMoviePoster.src = "./imgs/matrix-poster.jpg";
-imgMoviePoster.alt = "Poster do Filme Matrix";
+  // ADICIONANDO CLASSES
+  liMovie.classList.add("movie-item");
+  imgMoviePoster.classList.add("movie-poster");
+  divMovieAside.classList.add("movie-aside");
+  divMovieInfo.classList.add("movie-info");
+  h3MovieTitle.classList.add("movie-title");
+  h4MovieGenre.classList.add("movie-genre");
+  pSynopsis.classList.add("movie-synopsis");
+  btnAddMovie.classList.add("movie-add-button");
 
-// ADICIONANDO CLASSES
-liMovie.classList.add("movie-item");
-imgMoviePoster.classList.add("movie-poster");
-divMovieInfo.classList.add("movie-info");
-h3MovieTitle.classList.add("movie-title");
-h4MovieGenre.classList.add("movie-genre");
-pSynopsis.classList.add("movie-synopsis");
+  // console.log(liMovie);
 
-console.log(liMovie);
+  btnAddMovie.addEventListener("click", function () {
+    console.log("evento acionado!!!!");
+  });
 
-const ulMovies = document.querySelector(".movies-list");
-// console.log(ulMovies);
+  return liMovie;
+}
 
-ulMovies.append(liMovie);
+function renderMovieCards(movieList) {
+  const ulMovieList = document.querySelector(".movies-list");
+
+  for (let i = 0; i < movieList.length; i++) {
+    // console.log(movieList[i]);
+    const movieCard = createMovieCard(movieList[i]);
+    ulMovieList.append(movieCard);
+  }
+}
+
+// createMovieCard(movies[0]);
+renderMovieCards(movies);

@@ -38,6 +38,27 @@ main {
   width: 30%;
 }
 
+.movie-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-add-button {
+  align-self: flex-end;
+
+  font-size: 1.1rem;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3125rem;
+  box-shadow: 4px 4px gray;
+}
+
+.movie-add-button:hover {
+  background-color: #216b33;
+  color: white;
+}
+
 .movie-info {
   display: flex;
   flex-direction: column;
